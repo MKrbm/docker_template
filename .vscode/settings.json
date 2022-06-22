@@ -268,8 +268,6 @@
     "workbench.editor.enablePreview": false,
     "workbench.editor.openPositioning": "last",
     "explorer.confirmDelete": false,
-    "files.autoSave": "afterDelay",
-    "files.autoSaveDelay": 500,
     "editor.detectIndentation": false,
     "[python]": {
       "editor.tabSize": 4

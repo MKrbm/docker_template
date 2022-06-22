@@ -14,7 +14,7 @@ RUN usermod -d /home/$USERNAME -m $USERNAME
 RUN usermod -aG sudo user 
 USER $USERNAME
 WORKDIR /home/${USERNAME}/project
-
+RUN git config --global --add safe.directory /home/${USERNAME}/project
 # # install some utilities
 # RUN apt-get update && apt-get -y install htop cmake
 # RUN apt-get -y install openssh-server

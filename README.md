@@ -38,7 +38,10 @@ Put `.devcontainer` folder into your projects.
 
   - ### OSX
     - Some error message when trying to save in vscode?
-      - No solution yet.
+      ~~No solution yet.~~
+      Maybe because of autosave.
+      - you need to turn-off the autosave.
+
       <!-- - It is severe problem. If you change permissions with `chmod 777 -R .`, then error message won't come out.
       - Other than that, no solution is provided yet. -->
         <!-- - If I choose `- ../:/home/user/project:delegated` instead of `:consistent` error doesn't raise. -->
