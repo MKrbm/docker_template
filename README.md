@@ -32,6 +32,7 @@ Put `.devcontainer` folder into your projects.
 - ## dockerfile
   - It uses `mcr.microsoft.com/vscode/devcontainers` that best suit for remote container.
     - If you pick `mcr.microsoft.com/vscode/devcontainers/base:ubuntu-22.04`, there is no differece between `ubuntu:22.04`  which is the official image.
+    - `Dockerfile_base` uses base ubuntu image.
   - This image have user called `vscode`. If you wanto change user name, then change `ARG USERNAME=<name>` in `dockerfile` or `USERNAME:<name>` in `docker-compose.yml`
 
 - ## About permissions
