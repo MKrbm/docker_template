@@ -1,0 +1,397 @@
+{
+    "editor.bracketPairColorization.enabled": true,
+    "editor.guides.bracketPairs": true,
+    "editor.guides.bracketPairsHorizontal": false,
+    "editor.guides.highlightActiveBracketPair": true,
+    "editor.tokenColorCustomizations": {
+      "comments": "#25af43"
+      // "#25af43"
+    },
+    "workbench.colorCustomizations": {
+      "editor.findMatchBackground": "#5d8841",
+      "editor.findMatchBorder": "#bdbd32",
+      "editor.selectionBackground": "#684c75",
+      "editor.findMatchHighlightBackground": "#8d0707",
+      "tab.activeBackground": "#5c4091",
+      "editor.hoverHighlightBackground": "#4e5f5a",
+      "editor.selectionHighlightBackground": "#907f4c",
+      "editorCursor.foreground": "#c291b4",
+      "terminalCursor.foreground": "#72b9fb",
+  
+    },
+    "better-comments.tags": [
+  
+  
+      {
+        "tag": "*",
+        "color": "#ff52b7",
+        "strikethrough": false,
+        "underline": false,
+        "backgroundColor": "transparent",
+        "bold": true,
+        "italic": false
+      },    
+      {
+        "tag": "n*",
+        "color": "#c370a1",
+        "strikethrough": false,
+        "underline": true,
+        "backgroundColor": "transparent",
+        "bold": false,
+        "italic": false
+      },
+      {
+        "tag": "!",
+        "color": "#ff0000",
+        "strikethrough": false,
+        "underline": true,
+        "backgroundColor": "transparent",
+        "bold": false,
+        "italic": false
+      }
+    ],
+    "liveshare.presence": true,
+    // "editor.tabCompletion": "on",
+    // "editor.snippetSuggestions": "top",
+  "workbench.settings.editor": "ui",
+  "python.defaultInterpreterPath": "/usr/bin/python3",
+    "python.autoComplete.extraPaths": [
+        "${workspaceFolder}/customModule"
+      ],
+    "explorer.autoReveal": false,
+    "terminal.integrated.inheritEnv": false,
+    "workbench.editorAssociations": {
+      "*.ipynb": "jupyter-notebook"
+    },
+    "editor.fontLigatures": false,
+    "notebook.kernelProviderAssociations": [
+    
+    ],
+  
+  
+  
+  
+    // latex workshop
+    "latex-workshop.latex.tools": [
+      {
+        "name": "latexmk",
+        "command": "latexmk",
+        "args": [
+            "-shell-escape",
+            "-synctex=1",
+            "-interaction=nonstopmode",
+            "-file-line-error",
+            "-halt-on-error",
+            "-pdfdvi",
+            // "-pdf",
+            "-outdir=%OUTDIR%",
+            "%DOC%"
+        ],
+        "env": {}
+    },
+      {
+        "name": "xelatex",
+        "command": "xelatex",
+        "args": [
+        "-shell-escape",
+        "-synctex=1",
+        "-interaction=nonstopmode",
+        "-file-line-error",
+        "%DOC%"
+          ]
+      },          
+      {
+        "name": "pdflatex",
+        "command": "pdflatex",
+        "args": [
+        "-shell-escape",
+        "-synctex=1",
+        "-interaction=nonstopmode",
+        "-file-line-error",
+        "%DOC%"
+        ]
+      },
+    ],
+    "latex-workshop.latex.recipes": [
+  
+      // {
+      //   "name": "toolchain",
+      //   "tools": [
+      //       "Step 1: ptex2pdf",
+      //       "Step 2: pbibtex",
+      //       "Step 3: ptex2pdf",
+      //       "Step 4: ptex2pdf"
+      //   ]
+      // },
+    
+      {
+        "name": "latexmk",
+        "tools": [
+        "latexmk"
+        ]
+      },
+      
+      {
+        "name": "xelatex",
+        "tools": [
+        "xelatex"
+        ]
+      },
+    
+    
+    ],
+    // "latex-workshop.view.pdf.viewer": "tab",  
+    // "latex-workshop.latex.autoBuild.run": "never",
+    "latex-workshop.message.error.show":false,
+    "editor.renderControlCharacters": true,
+    "latex-workshop.information.error.show":false,
+    "latex-workshop.latex.autoClean.run": "onBuilt",
+    "latex-workshop.latex.autoBuild.run": "onSave",
+    "latex-workshop.latex.clean.fileTypes": [
+        "chapters/*.aux",
+        "misc/*.aux",
+        "*.aux",
+        "*.bbl",
+        "*.blg",
+        "*.idx",
+        "*.ind",
+        "*.lof",
+        "*.lot",
+        "*.out",
+        "*.toc",
+        "*.acn",
+        "*.acr",
+        "*.alg",
+        "*.glg",
+        "*.glo",
+        "*.gls",
+        "*.ist",
+        "*.fls",
+        "*.log",
+        "*.fdb_latexmk"
+    ],
+  
+  
+  
+        
+    // "debug.console.fontSize": 12,
+    // "markdown.preview.fontSize": 12,
+    // "terminal.integrated.fontSize": 12,
+    // "editor.fontSize": 15,
+    "editor.minimap.enabled": false,
+    "editor.wordWrap": "on",
+    "latex-workshop.message.update.show": false,
+    "python.analysis.extraPaths": [
+      "${workspaceFolder}/customModule"
+    ],
+    "notebook.cellToolbarLocation": {
+      "default": "right",
+      "jupyter-notebook": "left"
+    },
+    "latex-workshop.view.pdf.viewer": "tab",
+    "files.autoGuessEncoding": true,
+      "debug.inlineValues": true,
+      "settingsSync.ignoredExtensions": [
+        "ms-vscode.cpptools"
+      ],
+    "C_Cpp.addNodeAddonIncludePaths": true,
+    "sync.gist": "340be208f14956e966828474d2fa37fc",
+    "launch" :{
+          
+      // Use IntelliSense to learn about possible attributes.
+      // Hover to view descriptions of existing attributes.
+      // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+      "version": "0.2.0",
+      "configurations": [
+        {
+          "name": "g++(linux)",
+          "type": "cppdbg",
+          "request": "launch",
+          "program": "${fileDirname}/${fileBasenameNoExtension}",
+          "args": [],
+          "stopAtEntry": false,
+          "cwd": "${fileDirname}",
+          "environment": [],
+          "externalConsole": false,
+          "MIMode": "gdb",
+          "setupCommands": [
+            {
+              "description": "Enable pretty-printing for gdb",
+              "text": "-enable-pretty-printing",
+              "ignoreFailures": true
+            }
+          ],
+          "preLaunchTask": "debug_cpp",
+          "miDebuggerPath": "/usr/bin/gdb",
+          "miDebuggerArgs": "-q -ex quit; wait() { fg >/dev/null; }; /bin/gdb -q --interpreter=mi"
+        },
+        {
+          "name": "(lldb) Launch",
+          "type": "cppdbg",
+          "request": "launch",
+          "program": "${fileDirname}/${fileBasenameNoExtension}",
+          "args": [],
+          "cwd": "${fileDirname}",
+          "preLaunchTask": "debug_cpp",
+          "MIMode": "lldb",
+          "logging": {
+              "trace": true,
+              "traceResponse": true,
+              "engineLogging": true
+          }
+          }
+      ]
+    
+    },
+    "cmake.buildDirectory": "${workspaceFolder}/build",
+    "cmake.sourceDirectory": "${workspaceFolder}",
+    "extensions.ignoreRecommendations": true,
+    // "C_Cpp.intelliSenseEngineFallback": "Enabled",
+    // "cmake.configureOnOpen": false,
+    // "C_Cpp.dimInactiveRegions": false,
+    "cmake.loggingLevel": "debug",
+    "cmake.debugConfig": {
+      "externalConsole": false,
+      "console" : "integratedTerminal",
+      // "miDebuggerArgs": "-q -ex quit; wait() { fg >/dev/null; }; /bin/gdb -q --interpreter=mi"
+      },
+    "git.autofetch": true,
+    "workbench.editor.splitInGroupLayout": "vertical",
+    "terminal.integrated.defaultProfile.windows": "Command Prompt",
+    "C_Cpp.updateChannel": "Insiders",
+    "cmake.configureOnOpen": false,
+    "C_Cpp.enhancedColorization": "Disabled",
+  "editor.occurrencesHighlight": false,
+    "search.useIgnoreFiles": false,
+    "cmake.configureOnEdit": false,
+    "workbench.tree.indent": 16,
+    "workbench.editor.enablePreview": false,
+    "workbench.editor.openPositioning": "last",
+    "explorer.confirmDelete": false,
+    "files.autoSave": "afterDelay",
+    "files.autoSaveDelay": 500,
+    "editor.detectIndentation": false,
+    "[python]": {
+      "editor.tabSize": 4
+      },
+    "[cpp]": {
+    "editor.tabSize": 2
+    },
+    "[txt]": {
+    "editor.tabSize": 4
+    },
+    "[markdown]": {
+      "editor.tabSize": 2
+  },
+  "python.terminal.activateEnvInCurrentTerminal": true,
+  "githubIssues.queries": [
+  
+    {
+      "label": "My Issues",
+      "query": "default"
+    },
+    {
+      "label": "Created Issues",
+      "query": "author:${user} state:open repo:${owner}/${repository} sort:created-desc"
+    },
+    {
+      "label": "Recent Issues",
+      "query": "state:open repo:${owner}/${repository} sort:updated-desc"
+    }
+  ],
+  "diffEditor.ignoreTrimWhitespace": false,
+"window.zoomLevel": 1,
+"files.associations": {
+    "array": "cpp",
+    "vector": "cpp",
+    "__bit_reference": "cpp",
+    "__bits": "cpp",
+    "__config": "cpp",
+    "__debug": "cpp",
+    "__errc": "cpp",
+    "__hash_table": "cpp",
+    "__locale": "cpp",
+    "__mutex_base": "cpp",
+    "__node_handle": "cpp",
+    "__nullptr": "cpp",
+    "__split_buffer": "cpp",
+    "__string": "cpp",
+    "__threading_support": "cpp",
+    "__tree": "cpp",
+    "__tuple": "cpp",
+    "atomic": "cpp",
+    "bit": "cpp",
+    "bitset": "cpp",
+    "cctype": "cpp",
+    "chrono": "cpp",
+    "clocale": "cpp",
+    "cmath": "cpp",
+    "codecvt": "cpp",
+    "compare": "cpp",
+    "complex": "cpp",
+    "concepts": "cpp",
+    "condition_variable": "cpp",
+    "cstdarg": "cpp",
+    "cstddef": "cpp",
+    "cstdint": "cpp",
+    "cstdio": "cpp",
+    "cstdlib": "cpp",
+    "cstring": "cpp",
+    "ctime": "cpp",
+    "cwchar": "cpp",
+    "cwctype": "cpp",
+    "deque": "cpp",
+    "exception": "cpp",
+    "fstream": "cpp",
+    "initializer_list": "cpp",
+    "iomanip": "cpp",
+    "ios": "cpp",
+    "iosfwd": "cpp",
+    "iostream": "cpp",
+    "istream": "cpp",
+    "limits": "cpp",
+    "locale": "cpp",
+    "map": "cpp",
+    "memory": "cpp",
+    "mutex": "cpp",
+    "new": "cpp",
+    "numbers": "cpp",
+    "numeric": "cpp",
+    "optional": "cpp",
+    "ostream": "cpp",
+    "queue": "cpp",
+    "random": "cpp",
+    "ratio": "cpp",
+    "semaphore": "cpp",
+    "set": "cpp",
+    "sstream": "cpp",
+    "stack": "cpp",
+    "stdexcept": "cpp",
+    "streambuf": "cpp",
+    "string": "cpp",
+    "string_view": "cpp",
+    "system_error": "cpp",
+    "thread": "cpp",
+    "tuple": "cpp",
+    "type_traits": "cpp",
+    "typeinfo": "cpp",
+    "unordered_map": "cpp",
+    "unordered_set": "cpp",
+    "variant": "cpp",
+    "__functional_base": "cpp",
+    "algorithm": "cpp",
+    "functional": "cpp",
+    "iterator": "cpp",
+    "utility": "cpp",
+    "*.tcc": "cpp",
+    "memory_resource": "cpp",
+    "stop_token": "cpp",
+    "cinttypes": "cpp"
+}
+  
+    
+    // color theme for markdown
+    // "markdown.styles": [
+    // "https://cdn.jsdelivr.net/gh/dhdhagar/vscode-md-preview-light/style.min.css"
+    // ],        
+  }
