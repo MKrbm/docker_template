@@ -8,7 +8,6 @@ template for docker container
 - Windows
   Install docker for windows
 - linux
-
 ---
 ## How to use?
 Put `.devcontainer` folder into your projects. 
@@ -39,7 +38,10 @@ Put `.devcontainer` folder into your projects.
 
   - ### OSX
     - Some error message when trying to save in vscode?
-      - It is severe problem. If you change permissions with `chmod 777 -R .`, then error message won't come out.
-      - Other than that, no solution is provided yet.
+      - No solution yet.
+      <!-- - It is severe problem. If you change permissions with `chmod 777 -R .`, then error message won't come out.
+      - Other than that, no solution is provided yet. -->
+        <!-- - If I choose `- ../:/home/user/project:delegated` instead of `:consistent` error doesn't raise. -->
+        
+
   - ### Windows
-    - N

@@ -6,7 +6,6 @@ ARG USERNAME=user
 ARG GROUPNAME=user
 # ARG UID=1001
 # ARG GID=1001
-
 RUN usermod -l user vscode
 RUN groupmod -n user vscode
 RUN echo "root:root" | chpasswd

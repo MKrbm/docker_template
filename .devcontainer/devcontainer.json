@@ -22,7 +22,6 @@
 		"aaron-bond.better-comments",
         "ms-python.python",
         "xshrim.txt-syntax",
-        "eamodio.gitlens",
         "mhutchie.git-graph",
         "bierner.markdown-preview-github-styles",
         "GitHub.vscode-pull-request-github"
@@ -118,8 +117,8 @@
 		"search.useIgnoreFiles": false,
 		"cmake.configureOnEdit": false, 
 		"C_Cpp.default.intelliSenseMode": "linux-gcc-x64",
-		"C_Cpp.default.compilerPath": "/usr/bin/gcc"
-        // "files.autoSave": "afterDelay",
-        // "files.autoSaveDelay": 500
+		"C_Cpp.default.compilerPath": "/usr/bin/gcc",
+        "files.autoSave": "afterDelay",
+        "files.autoSaveDelay": 500
 	}
 }
