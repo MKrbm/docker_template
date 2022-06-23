@@ -44,7 +44,7 @@ ENV PATH=$CONDA_DIR/bin:$PATH
 ENV PATH=$CONDA_DIR/envs:$PATH
 RUN conda init
 
-git config --global --add safe.directory /home/user/project
+RUN git config --global --add safe.directory /home/user/project
 
 # install via environment.yml
 # # ADD environment.yml environment.yml
