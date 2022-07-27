@@ -1,7 +1,7 @@
 # https://github.com/microsoft/vscode-dev-containers/tree/v0.209.6/containers/cpp/.devcontainer/base.Dockerfile
 
 ARG VARIANT="ubuntu-22.04"
-FROM mcr.microsoft.com/vscode/devcontainers/cpp:0-${VARIANT}
+FROM kei0709/vscode_gpu_dev:latest
 ARG USERNAME=user
 ARG GROUPNAME=user
 ARG PY_VERSION="3.9"
@@ -22,13 +22,13 @@ RUN apt-get update -y && apt-get -y install software-properties-common &&\
   
 
 # n* install python 3.9
-RUN apt-get -y install python${PY_VERSION}-distutils python${PY_VERSION} 
+RUN apt-get -y install libcairo2-dev pkg-config python${PY_VERSION}-distutils python${PY_VERSION}-dev 
 RUN update-alternatives --install /usr/bin/python3 python3 /usr/bin/python${PY_VERSION} 1 && update-alternatives --install /usr/bin/python python /usr/bin/python${PY_VERSION} 1 && \
     apt-get -y install python3-pip
 
-ADD requirements.txt requirements.txt
-RUN pip3 install -r requirements.txt
-RUN rm -rf environment.yml
+# ADD requirements.txt requirements.txt
+# RUN pip3 install -r requirements.txt
+# RUN rm -rf environment.yml
 # n* installed python
 
 RUN apt-get update -y && apt-get -y install htop cmake openssh-server cmake-curses-gui
@@ -61,9 +61,9 @@ RUN apt-get update -y && apt-get -y install htop cmake openssh-server cmake-curs
 # # RUN rm -rf environment.yml
 # n* installed conda
 
-RUN git config --global --add safe.directory /home/user/project
 
 
 
 USER $USERNAME
+RUN git config --global --add safe.directory /home/user/project
 WORKDIR /home/${USERNAME}/project

@@ -1,7 +1,7 @@
 // For format details, see https://aka.ms/devcontainer.json. For config options, see the README at:
 // https://github.com/microsoft/vscode-dev-containers/tree/v0.209.6/containers/cpp
 {
-	"name": "C++",
+	"name": "gpu_test",
 	"dockerComposeFile": [
 		"docker-compose.yml"
 	],
@@ -20,11 +20,11 @@
 		"ms-vscode-remote.remote-wsl",
 		"austin.code-gnu-global",
 		"aaron-bond.better-comments",
-        "ms-python.python",
-        "xshrim.txt-syntax",
-        "mhutchie.git-graph",
-        "bierner.markdown-preview-github-styles",
-        "GitHub.vscode-pull-request-github"
+    "ms-python.python",
+    "xshrim.txt-syntax",
+    "mhutchie.git-graph",
+    "bierner.markdown-preview-github-styles",
+    "GitHub.vscode-pull-request-github"
 	],
 	
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
