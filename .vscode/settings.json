@@ -298,7 +298,7 @@
     }
   ],
   "diffEditor.ignoreTrimWhitespace": false,
-"window.zoomLevel": 1,
+"window.zoomLevel": 0,
 "files.associations": {
     "array": "cpp",
     "vector": "cpp",
