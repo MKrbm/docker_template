@@ -24,8 +24,6 @@ Put `.devcontainer` folder into your projects.
   - For the first time, you need to build image and compose a container.
   - If you want to rebuild, run `Rebuild ..` in command palette.
 
-
-
 - ## compose.yml
   - In order to use github, you need to check `.ssh` folder is under home directory (`~`) in host machine.
     - This enable using the private keys without copying
@@ -49,3 +47,17 @@ Put `.devcontainer` folder into your projects.
         
 
   - ### Windows
+
+
+
+# versions
+
+- ## v1.0
+  - The use of bind mount makes it so that any changes made within the Docker container are reflected on the host machine.
+  - However, there is a potential for this setup to negatively impact performance.
+- ## v2.0
+  - We've switched to using volume mount instead.
+  - This means that any changes made within the container will be stored in a separate folder from the host machine, so if you want work in docker container, you'll need to copy or move the folder.
+  - Performance (mainly I/O) increased.
+  - bug fixed
+    - ssh_find_agent is fixed.
