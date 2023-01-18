@@ -1,5 +1,8 @@
 version: '3.4'
 
+volumes:
+  template:
+
 services:
   main:
     container_name: template
@@ -14,7 +17,7 @@ services:
       context: .
       dockerfile: ./Dockerfile
     volumes:
-      - ../:/home/user/project:delegated
+      - template:/home/user/project
       - type: bind
         source: ~/.ssh
         target: /home/user/.ssh
