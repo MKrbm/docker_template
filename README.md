@@ -61,3 +61,10 @@ Put `.devcontainer` folder into your projects.
   - Performance (mainly I/O) increased.
   - bug fixed
     - ssh_find_agent is fixed.
+
+
+- ## v3.0 
+  - since poor performance (read and write b/w HD) only yeild on M1 mac, it's not necessary to use v2.0 on normal PC
+  - for max os higher than 12.5, one can use `Virtiofs` and it solve performance problem on bind volume. 
+  - So, v3.0 is basically same as v1.0
+
