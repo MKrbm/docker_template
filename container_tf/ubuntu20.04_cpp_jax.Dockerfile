@@ -84,7 +84,7 @@ FROM base-${TARGETARCH} as target
 # FROM base-${ARCH} as target
 
 
-# install conda
+#n* install conda
 ARG CONDA=Miniconda3-${CONDA_VER}-Linux-${OS_TYPE}.sh
 RUN wget -P /home/${USERNAME} \
     http://repo.continuum.io/miniconda/${CONDA} \
@@ -107,6 +107,15 @@ RUN echo "source /usr/share/bash-completion/completions/git \n" >> ~/.bashrc
 SHELL ["/bin/bash", "-c"]
 RUN ./python-package.sh
 
+# n* install CUDNN
+USER root
+COPY cudnn-linux-x86_64-8.8.0.121_cuda11-archive.tar.xz cudnn-linux-x86_64-8.8.0.121_cuda11-archive.tar.xz
+RUN tar -xvf cudnn-linux-x86_64-8.8.0.121_cuda11-archive.tar.xz 
+RUN cp cudnn-*-archive/include/cudnn*.h /usr/local/cuda/include \
+    && cp -P cudnn-*-archive/lib/libcudnn* /usr/local/cuda/lib64 \
+    && chmod a+r /usr/local/cuda/include/cudnn*.h /usr/local/cuda/lib64/libcudnn*
+
+RUN rm -rf cudnn*
 
 
 
