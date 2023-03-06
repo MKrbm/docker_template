@@ -49,3 +49,8 @@ Put `.devcontainer` folder into your projects.
         
 
   - ### Windows
+
+
+- ## Libraries
+  - extundelete
+    can restore deleted files by rm -rf. `sudo apt-get install extundelete`

@@ -5,7 +5,7 @@ volumes:
 
 services:
   main:
-    container_name: worms_gpu
+    container_name: worm_tf
     # env_file: 
     #   - .env
     # environment:
