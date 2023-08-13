@@ -1,6 +1,6 @@
 ARG VARIANT="ubuntu-22.04" 
 FROM mcr.microsoft.com/vscode/devcontainers/cpp:0-${VARIANT} as base
-# Following the link https://gitlab.com/nvidia/container-images/cuda/-/tree/master/dist/11.7.1/ubuntu2204
+
 FROM base as base-amd64
 
 ENV NVARCH x86_64

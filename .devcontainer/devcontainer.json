@@ -5,6 +5,7 @@
 	"dockerComposeFile": [
 		"docker-compose.yml"
 	],
+  "remoteUser": "user",
 	"service": "main",
 	"workspaceFolder": "/home/user/project",
 	"extensions": [
