@@ -24,8 +24,6 @@ Put `.devcontainer` folder into your projects.
   - For the first time, you need to build image and compose a container.
   - If you want to rebuild, run `Rebuild ..` in command palette.
 
-
-
 - ## compose.yml
   - In order to use github, you need to check `.ssh` folder is under home directory (`~`) in host machine.
     - This enable using the private keys without copying
@@ -49,3 +47,40 @@ Put `.devcontainer` folder into your projects.
         
 
   - ### Windows
+
+
+- ## Libraries
+  - extundelete
+    can restore deleted files by rm -rf. `sudo apt-get install extundelete`
+
+
+
+- ## Build multi-architecture with buildx
+
+  - ### Create builder
+    - `docker buildx create --name mybuilder --driver docker-container --bootstrap`
+    - `docker buildx use mybuilder`
+    - `docker buildx inspect` to check inside.
+  
+  - ### Build multi-arch image
+    - docker buildx build --platform linux/amd64,linux/arm64,linux/arm/v7 -t <username>/<image>:latest --push . -f <path to dockerfile>
+    e.g. docker buildx build --platform linux/amd64,linux/arm64,linux/arm/v7 -t kei0709/ubuntu22.04_nodejs:v2.0 --push . -f ubuntu22.04_nodejs.dockerfile
+
+# versions
+
+- ## v1.0
+  - The use of bind mount makes it so that any changes made within the Docker container are reflected on the host machine.
+  - However, there is a potential for this setup to negatively impact performance.
+- ## v2.0
+  - We've switched to using volume mount instead.
+  - This means that any changes made within the container will be stored in a separate folder from the host machine, so if you want work in docker container, you'll need to copy or move the folder.
+  - Performance (mainly I/O) increased.
+  - bug fixed
+    - ssh_find_agent is fixed.
+
+
+- ## v3.0 
+  - since poor performance (read and write b/w HD) only yeild on M1 mac, it's not necessary to use v2.0 on normal PC
+  - for max os higher than 12.5, one can use `Virtiofs` and it solve performance problem on bind volume. 
+  - So, v3.0 is basically same as v1.0
+

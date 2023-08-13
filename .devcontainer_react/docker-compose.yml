@@ -1,22 +1,27 @@
 version: '3.4'
 
-# volumes:
-#   template:
-
 services:
   main:
-    container_name: template
-
-    # image: ubuntu:jammy-20221101
+    container_name: react_test
+    # env_file: 
+    #   - .env
+    # environment:
+    #   DOCKER_BUILDKIT: 1
+    #   COMPOSE_DOCKER_CLI_BUILD: 1
+    # image: kei0709/ubuntu22.04_nodejs
     build:
       context: .
-      dockerfile: ./Dockerfile
+      dockerfile: ./ubuntu22.04_nodejs.Dockerfile
     volumes:
-      - ..:/home/user/project
+      - ../:/home/user/project:delegated
       - type: bind
         source: ~/.ssh
         target: /home/user/.ssh
         read_only: true
+      # - type: bind
+      #   source: ~/.gitconfig
+      #   target: /home/user/.gitconfig
+      #   read_only: true
     # ports:
     #   - "8881:8888" #set by yourself
     cap_add: 
