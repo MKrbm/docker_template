@@ -1,0 +1,12 @@
+version: '3.4'
+
+services:
+  neovim:
+    container_name: nvimubuntu
+    image: nvimubuntu:latest
+    tty: true
+    volumes:
+      - type: bind
+        source: ~/.ssh
+        target: /home/user/.ssh
+        read_only: true

@@ -39,5 +39,18 @@ RUN if command -v curl >/dev/null 2>&1; then \
 
 
 RUN echo 'source /usr/share/nvm/init-nvm.sh' >> /home/user/.bashrc
-# Return to root user (if necessary for further instructions)
-# USER root
+
+
+USER root
+
+
+RUN pacman -Syu --noconfirm \
+    && pacman -S --noconfirm xorg-apps xorg-xeyes
+    
+RUN pacman -S --noconfirm xclip
+
+ENV DISPLAY host.docker.internal:0.0 
+
+RUN echo 'user:user' | chpasswd # Set password for user
+RUN echo 'root:root' | chpasswd
+USER user
