@@ -68,13 +68,13 @@ RUN LAZYGIT_VERSION=$(curl -s "https://api.github.com/repos/jesseduffield/lazygi
 USER user
 
 RUN pip install pynvim
-RUN bash -c "$(curl -fsSL https://raw.githubusercontent.com/ayamir/nvimdots/HEAD/scripts/install.sh)"
-
+RUN bash -c "$(curl -fsSL https://raw.githubusercontent.com/MKrbm/my_nvim_dots/HEAD/scripts/install.sh)"
 
 
 # Switch back to root
 USER root
 
+RUN apt-get update -y && apt-get install xclip -y 
 
 # Set display
 ENV DISPLAY host.docker.internal:0.0
@@ -85,3 +85,5 @@ RUN echo 'root:root' | chpasswd
 
 # # Switch back to user
 USER user
+
+RUN mkdir /home/user/project
