@@ -1,0 +1,24 @@
+version: '3.4'
+
+
+services:
+  neovim:
+    container_name: nvimubuntu
+    image: nvimubuntu:latest
+    tty: true
+    user : 1000:1000
+    ports:
+      - 8899:8899
+    volumes:
+      - type: bind
+        source: ~/.ssh
+        target: /home/user/.ssh
+        read_only: true
+      - type: bind
+        source: ~/.gitconfig
+        target: /etc/gitconfig
+        read_only: true
+      - doc:/home/user/project
+
+volumes:
+  doc:
