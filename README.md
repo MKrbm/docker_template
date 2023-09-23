@@ -64,7 +64,7 @@ Put `.devcontainer` folder into your projects.
   
   - ### Build multi-arch image
     - docker buildx build --platform linux/amd64,linux/arm64,linux/arm/v7 -t <username>/<image>:latest --push . -f <path to dockerfile>
-    e.g. docker buildx build --platform linux/amd64,linux/arm64,linux/arm/v7 -t kei0709/ubuntu22.04_nodejs:v2.0 --push . -f ubuntu22.04_nodejs.dockerfile
+    e.g. docker buildx build --platform linux/amd64,linux/arm64,linux/arm/v7 -t kei0709/ubuntu22.04_nodejs:v3.0 --push . -f ubuntu22.04_nodejs.dockerfile
 
 # versions
 
