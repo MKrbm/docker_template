@@ -1,0 +1,30 @@
+version: '3.4'
+
+# volumes:
+#   worm_data:
+
+services:
+  main:
+    container_name: worms_gpu_torch 
+    image: kei0709/cuda12.1_ubutnu22.04:latest 
+    volumes:
+      - ..:/home/user/project
+      - type: bind
+        source: ~/.ssh
+        target: /home/user/.ssh
+        read_only: true
+    tty: true
+    user : 1000:1000
+    ports:
+      - 8899:8899
+    security_opt: 
+      - seccomp:unconfined
+    stdin_open: true
+    working_dir: /home/user/project
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
