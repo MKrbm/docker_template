@@ -261,7 +261,7 @@
     "C_Cpp.updateChannel": "Insiders",
     "cmake.configureOnOpen": false,
     "C_Cpp.enhancedColorization": "Disabled",
-  "editor.occurrencesHighlight": false,
+  "editor.occurrencesHighlight": "off",
     "search.useIgnoreFiles": false,
     "cmake.configureOnEdit": false,
     "workbench.tree.indent": 16,
