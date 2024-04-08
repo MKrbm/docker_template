@@ -6,20 +6,34 @@ FROM ubuntu:latest
 ENV DEBIAN_FRONTEND=non-interactive
 
 
-ARG UID=1000
-ARG GID=1000
+ARG USERNAME=user
+ARG USER_UID=1000
+ARG USER_GID=$USER_UID
+
+
+
+RUN groupadd --gid $USER_GID $USERNAME \
+    && useradd -s /bin/bash --uid $USER_UID --gid $USER_GID -m $USERNAME
+
+RUN echo "root:root" | chpasswd
+RUN echo "$USERNAME:$USERNAME" | chpasswd
+# change time-zone
+ENV TZ=Asia/Tokyo
+RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
 # Update the system and install necessary tools
 RUN apt-get update && \
     apt-get install -y curl git sudo make unzip wget x11-apps lldb python3-pip && \
     apt-get clean
 
+# setting the locale to UTF-8
+RUN apt-get update && apt-get install -y locales
+RUN locale-gen en_US.UTF-8
+ENV LANG en_US.UTF-8
+ENV LANGUAGE en_US:en
+ENV LC_ALL en_US.UTF-8
 
-# Create a group with GID
-RUN groupadd -g $GID user
-
-# Create a user with UID and add it to the group
-RUN useradd -m -u $UID -g user user
+RUN adduser $USERNAME sudo
 
 # Switch to the new user
 USER user
@@ -68,22 +82,39 @@ RUN LAZYGIT_VERSION=$(curl -s "https://api.github.com/repos/jesseduffield/lazygi
 USER user
 
 RUN pip install pynvim
-RUN bash -c "$(curl -fsSL https://raw.githubusercontent.com/MKrbm/my_nvim_dots/HEAD/scripts/install.sh)"
-
 
 # Switch back to root
 USER root
 
 RUN apt-get update -y && apt-get install xclip -y 
 
-# Set display
 ENV DISPLAY host.docker.internal:0.0
 
-# Set passwords for user and root
-RUN echo 'user:user' | chpasswd # Set password for user
-RUN echo 'root:root' | chpasswd
+RUN apt-get install -y texlive-full
+
+# Install software-properties-common required for add-apt-repository
+RUN apt-get install -y software-properties-common
+
+# Use /bin/bash shell for install hstr
+SHELL ["/bin/bash", "-c"]
+RUN add-apt-repository ppa:ultradvorka/ppa && apt-get update && apt-get install -y hstr
+
+# for vimtex 
+RUN apt-get install -y okular dbus-x11 
 
 # # Switch back to user
-USER user
+USER ${USERNAME}
+RUN hstr --show-configuration >> ~/.bashrc && . ~/.bashrc
+
+#n* change terminal colors
+COPY terminal-colors-branch.sh /tmp/
+RUN cat /tmp/terminal-colors-branch.sh >> ~/.bashrc
+
+COPY ssh-find-agent/ /home/${USERNAME}/ssh-find-agent/
+COPY ssh-bashrc.sh ssh-bashrc.sh
+RUN cat ssh-bashrc.sh >> ~/.bashrc
+RUN echo "source /usr/share/bash-completion/completions/git \n" >> ~/.bashrc
 
 RUN mkdir /home/user/project
+
+WORKDIR /home/${USERNAME}
