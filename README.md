@@ -64,7 +64,7 @@ Put `.devcontainer` folder into your projects.
   
   - ### Build multi-arch image
     - docker buildx build --platform linux/amd64,linux/arm64,linux/arm/v7 -t <username>/<image>:latest --push . -f <path to dockerfile>
-    e.g. docker buildx build --platform linux/amd64,linux/arm64,linux/arm/v7 -t kei0709/ubuntu22.04_nodejs:v2.0 --push . -f ubuntu22.04_nodejs.dockerfile
+    e.g. docker buildx build --platform linux/amd64,linux/arm64,linux/arm/v7 -t kei0709/ubuntu22.04_nodejs:v3.0 --push . -f ubuntu22.04_nodejs.dockerfile
 
 # versions
 
@@ -83,4 +83,5 @@ Put `.devcontainer` folder into your projects.
   - since poor performance (read and write b/w HD) only yeild on M1 mac, it's not necessary to use v2.0 on normal PC
   - for max os higher than 12.5, one can use `Virtiofs` and it solve performance problem on bind volume. 
   - So, v3.0 is basically same as v1.0
+  - But `Virtiofs` is still unstable so be careful to use.
 

@@ -1,0 +1,7 @@
+FROM kubeflownotebookswg/jupyter-scipy:v1.7.0
+
+
+USER root
+RUN curl -fsSL https://get.docker.com | sh
+
+USER jovyan

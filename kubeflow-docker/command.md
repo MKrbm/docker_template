@@ -1,0 +1,1 @@
+`docker buildx build --platform linux/amd64 -t kei0709/codeserver-python:v5.0 -f Dockerfile-VSC . --push`
