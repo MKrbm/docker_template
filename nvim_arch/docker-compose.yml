@@ -4,11 +4,7 @@ version: '3.4'
 services:
   neovim:
     container_name: nvimubuntu
-<<<<<<< HEAD
-    image: nvimubuntu2:latest
-=======
     image: kei0709/nvimubuntu
->>>>>>> origin/main
     tty: true
     user : 1000:1000
     ports:
