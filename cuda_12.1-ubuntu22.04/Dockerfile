@@ -49,6 +49,9 @@ RUN mkdir -p /var/run/sshd \
 
 
 # Install Miniconda
+
+USER ${USERNAME}
+
 RUN wget -P /home/${USERNAME} http://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh \
     && mkdir /home/${USERNAME}/.conda \
     && bash /home/${USERNAME}/Miniconda3-latest-Linux-x86_64.sh -b -p /home/${USERNAME}/miniconda3 -u \
@@ -56,16 +59,13 @@ RUN wget -P /home/${USERNAME} http://repo.continuum.io/miniconda/Miniconda3-late
     && conda init \
     && conda update -y conda
 
-# Set NVM_DIR environment variable
-ENV NVM_DIR=/home/${USERNAME}/.nvm
 
-# Install NVM, Node.js
-RUN mkdir -p $NVM_DIR \
-    && curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash \
-    && . "$NVM_DIR/nvm.sh" \
-    && nvm install $NODE_VERSION \
-    && nvm alias default $NODE_VERSION \
-    && nvm use default
+# Download and run the NVM installation script
+RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
+
+# Add NVM to the user's bash profile
+RUN echo 'export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"' >> ~/.bashrc && \
+    echo '[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"' >> ~/.bashrc
 
 
 # Set the working directory to the user's home directory
@@ -77,7 +77,7 @@ WORKDIR /home/${USERNAME}
 ENV PATH="/home/${USERNAME}/miniconda3/bin:${PATH}"
 
 # Switch back to the created user for security
-USER ${USERNAME}
+# USER ${USERNAME}
 
 RUN ssh-keygen -t ed25519 -f ~/.ssh/id_ed25519
 
