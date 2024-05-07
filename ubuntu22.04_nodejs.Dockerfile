@@ -6,3 +6,5 @@ RUN apt-get update && apt-get install -y \
     build-essential 
 RUN add-apt-repository ppa:deadsnakes/ppa
 RUN apt update && apt install python3.8 -y
+
+USER 

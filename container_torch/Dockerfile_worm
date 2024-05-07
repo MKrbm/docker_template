@@ -58,13 +58,13 @@ RUN ./install-libconfig.sh
 RUN ./install-alpscore.sh
 
 # setting for ctrl + r command (easier to search history)
-RUN add-apt-repository ppa:ultradvorka/ppa -y && apt-get update && apt-get install hstr -y && hstr --show-configuration >> ~/.bashrc
+RUN add-apt-repository ppa:ultradvorka/ppa -y && apt-get update && apt-get install hstr -y  
 
 USER ${USERNAME}
-RUN hstr --show-configuration >> ~/.bashrc
+CMD ["/bin/bash", "-c", "hstr --show-configuration >> ~/.bashrc && exec /bin/bash"]
 
-#n* change terminal colors
-RUN cat /tmp/terminal-colors-branch.sh >> ~/.bashrc
+# #n* change terminal colors
+# RUN cat /tmp/terminal-colors-branch.sh >> ~/.bashrc
 
 WORKDIR /home/${USERNAME}
 ARG CONDA_VER=latest
@@ -78,7 +78,6 @@ FROM base as base-arm64
 ARG OS_TYPE=aarch64
 
 FROM base-${TARGETARCH} as target
-# FROM base-${ARCH} as target
 
 
 #n* install conda
@@ -96,7 +95,6 @@ RUN conda update -y conda
 
 WORKDIR /home/${USERNAME}/project
 
-# COPY python-package.sh python-package.sh
 COPY ssh-find-agent/ /home/${USERNAME}/ssh-find-agent/
 COPY ssh-bashrc.sh ssh-bashrc.sh
 RUN cat ssh-bashrc.sh >> ~/.bashrc
@@ -127,7 +125,7 @@ ENV DISPLAY host.docker.internal:0.0
 
 USER ${USERNAME}
 # Install nvm
-RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash
+RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
 
 # Set up environment variables for nvm
 ENV NVM_DIR /home/user/.nvm
